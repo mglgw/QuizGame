@@ -1,0 +1,778 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .quizBorder {
+   @apply border-double rounded border-8 border-cyan-400 shadow-cyan-400 shadow-2xl;
+  }
+}
+
+:root {
+  font-family: Michroma, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #22D3EE;
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  --toastify-color-warning: rgba(36, 36, 36, 0.73);
+  --toastify-color-transparent: rgba(255, 255, 255, 1);
+  --toastify-text-color-warning:#22D3EE;
+}
+
+.LogoFont{
+  font-family: AE-Bold-Italic, serif;
+  font-size: calc(1rem + 2.5vw);
+  width: 100%;
+}
+.QuizTextFont{
+  font-family: Michroma, serif ;
+  user-select: none;
+  color: #22D3EE;
+}
+.TextFontSize{
+  font-size: calc(0.5rem + 0.6vw);
+}
+.EndGameLogoFont{
+  font-family: AE-Bold-Italic, serif;
+  font-size: calc(0.7rem + 2.5vw);
+  width: 100%;
+}
+
+.backgroundWrapper {
+  perspective:300px;
+}
+@media (min-resolution: 1.25dppx) {
+
+  .backgroundDiv{
+    width: 125vw;
+  }
+}
+@media (max-width: 1920px) {
+  .backgroundWrapper{
+    perspective: 250px;
+  }
+  .TextFontSize{
+    font-size: calc(0.5rem + 0.4vw) ;
+  }
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 700ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}
+.tooltip {
+  @apply invisible ;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #22D3EE;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #22D3EE;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+@keyframes crawlingWall {
+  to {
+    background-position-y: bottom;
+  }
+}
+.backgroundDiv {
+  background-size: 40px 40px;
+  transform-style: preserve-3d;
+  background-image:
+          linear-gradient(to right, rgba(255, 255, 255, .2) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, .2) 1px, transparent 1px);
+  height: inherit;
+  transform: rotateX(35deg);
+  transform-origin: top center;
+  animation: 10s linear infinite crawlingWall;
+  background-position-y: top;
+}
+
+
+.backgroundStart{
+  overflow: hidden;
+  background-image: linear-gradient(to top, #0f0209, #23061d, #330531, #3e024b, #41056a, #520578, #640385, #770092, #9b0089, #b8007e, #ce1173, #e03168);
+}
+
+@font-face {
+  font-family: "AE-Bold-Italic";
+  src: local("AirbnbCerealLight"),
+  url("/Alien-Encounters-Bold-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Michroma";
+  src: local("Michroma-Regular"),
+  url("/Michroma-Regular.ttf") format("truetype");
+}
+
+
+.glitchContainer {
+  top: 40%;
+  left: 50%;
+}
+
+.glitch {
+  position: relative;
+  color: #22D3EE;
+  font-size: 80px;
+}
+
+.line:not(:first-child) {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.line:nth-child(1) {
+  animation: clip 3000ms -300ms linear infinite, glitch1 500ms -869ms linear infinite;
+}
+@keyframes glitch1 {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+    color: #22D3EE;
+  }
+  85% {
+    transform: translateX(2px);
+    color: #4E9A26;
+  }
+  90% {
+    transform: translateX(2px);
+    color: #AC1212;
+  }
+  95% {
+    transform: translateX(3px);
+    color: #22D3EE;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.line:nth-child(2) {
+  animation: clip 3000ms -600ms linear infinite, glitch2 500ms -995ms linear infinite;
+}
+@keyframes glitch2 {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+    color: #22D3EE;
+  }
+  85% {
+    transform: translateX(2px);
+    color: #4E9A26;
+  }
+  90% {
+    transform: translateX(-4px);
+    color: #AC1212;
+  }
+  95% {
+    transform: translateX(0px);
+    color: #22D3EE;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.line:nth-child(3) {
+  animation: clip 3000ms -900ms linear infinite, glitch3 500ms -887ms linear infinite;
+}
+@keyframes glitch3 {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+    color:#22D3EE;
+  }
+  85% {
+    transform: translateX(5px);
+    color: #4E9A26;
+  }
+  90% {
+    transform: translateX(-1px);
+    color: #AC1212;
+  }
+  95% {
+    transform: translateX(-1px);
+    color: #22D3EE;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.line:nth-child(4) {
+  animation: clip 3000ms -1200ms linear infinite, glitch4 500ms -361ms linear infinite;
+}
+@keyframes glitch4 {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+    color: #330531;
+  }
+  85% {
+    transform: translateX(-1px);
+    color: #4E9A26;
+  }
+  90% {
+    transform: translateX(2px);
+    color: #AC1212;
+  }
+  95% {
+    transform: translateX(1px);
+    color: #330531;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.line:nth-child(5) {
+  animation: clip 3000ms -1500ms linear infinite, glitch5 500ms -399ms linear infinite;
+}
+@keyframes glitch5 {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+    color: #330531;
+  }
+  85% {
+    transform: translateX(-2px);
+    color: #4E9A26;
+  }
+  90% {
+    transform: translateX(4px);
+    color: #AC1212;
+  }
+  95% {
+    transform: translateX(1px);
+    color: #330531;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.line:nth-child(6) {
+  animation: clip 3000ms -1800ms linear infinite, glitch6 500ms -27ms linear infinite;
+}
+@keyframes glitch6 {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+    color: #330531;
+  }
+  85% {
+    transform: translateX(-2px);
+    color: #4E9A26;
+  }
+  90% {
+    transform: translateX(-3px);
+    color: #AC1212;
+  }
+  95% {
+    transform: translateX(1px);
+    color: #330531;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.line:nth-child(7) {
+  animation: clip 3000ms -2100ms linear infinite, glitch7 500ms -295ms linear infinite;
+}
+@keyframes glitch7 {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+    color: #330531;
+  }
+  85% {
+    transform: translateX(3px);
+    color: #4E9A26;
+  }
+  90% {
+    transform: translateX(2px);
+    color: #AC1212;
+  }
+  95% {
+    transform: translateX(2px);
+    color: #330531;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.line:nth-child(8) {
+  animation: clip 3000ms -2400ms linear infinite, glitch8 500ms -44ms linear infinite;
+}
+@keyframes glitch8 {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+    color: #fff;
+  }
+  85% {
+    transform: translateX(-1px);
+    color: #4E9A26;
+  }
+  90% {
+    transform: translateX(3px);
+    color: #AC1212;
+  }
+  95% {
+    transform: translateX(4px);
+    color: #fff;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.line:nth-child(9) {
+  animation: clip 3000ms -2700ms linear infinite, glitch9 500ms -96ms linear infinite;
+}
+@keyframes glitch9 {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+    color: #fff;
+  }
+  85% {
+    transform: translateX(-1px);
+    color: #4E9A26;
+  }
+  90% {
+    transform: translateX(-3px);
+    color: #AC1212;
+  }
+  95% {
+    transform: translateX(0px);
+    color: #fff;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.line:nth-child(10) {
+  animation: clip 3000ms -3000ms linear infinite, glitch10 500ms -107ms linear infinite;
+}
+@keyframes glitch10 {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+    color: #fff;
+  }
+  85% {
+    transform: translateX(4px);
+    color: #4E9A26;
+  }
+  90% {
+    transform: translateX(-1px);
+    color: #AC1212;
+  }
+  95% {
+    transform: translateX(1px);
+    color: #fff;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes clip {
+  0% {
+    clip-path: polygon(0 100%, 100% 100%, 100% 120%, 0 120%);
+  }
+  100% {
+    clip-path: polygon(0 -20%, 100% -20%, 100% 0%, 0 0);
+  }
+}
+
+.portfolio-experiment {
+
+}
+.portfolio-experiment .experiment-title {
+  outline: none;
+  text-align: center;
+  min-height: 10vw;
+  max-width: 80vw;
+  min-width: 10vw;
+}
+.portfolio-experiment .experiment-title,
+.portfolio-experiment .experiment-title * {
+  animation: cray 7s infinite steps(50);
+}
+@keyframes cray {
+  2% {
+    font-weight: 600;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: none;
+  }
+  4% {
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  6% {
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  8% {
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: underline;
+    text-transform: none;
+  }
+  10% {
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  12% {
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: line-through;
+    text-transform: none;
+  }
+  14% {
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  16% {
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: lowercase;
+  }
+  18% {
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  20% {
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: underline;
+    text-transform: none;
+  }
+  22% {
+    font-weight: 200;
+    font-style: normal;
+    text-decoration: underline;
+    text-transform: none;
+  }
+  24% {
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  26% {
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  28% {
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  30% {
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  32% {
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: lowercase;
+  }
+  34% {
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: line-through;
+    text-transform: none;
+  }
+  36% {
+    font-weight: 100;
+    font-style: normal;
+    text-decoration: underline;
+    text-transform: lowercase;
+  }
+  38% {
+    font-weight: 400;
+    font-style: italic;
+    text-decoration: none;
+    text-transform: none;
+  }
+  40% {
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: line-through;
+    text-transform: none;
+  }
+  42% {
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  44% {
+    font-weight: 100;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  46% {
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: line-through;
+    text-transform: capitalize;
+  }
+  48% {
+    font-weight: 700;
+    font-style: italic;
+    text-decoration: none;
+    text-transform: none;
+  }
+  50% {
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+  52% {
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: underline;
+    text-transform: none;
+  }
+  54% {
+    font-weight: 700;
+    font-style: italic;
+    text-decoration: none;
+    text-transform: none;
+  }
+  56% {
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+  58% {
+    font-weight: 500;
+    font-style: italic;
+    text-decoration: none;
+    text-transform: none;
+  }
+  60% {
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  62% {
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  64% {
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: lowercase;
+  }
+  66% {
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  68% {
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  70% {
+    font-weight: 400;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: none;
+  }
+  72% {
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: underline;
+    text-transform: none;
+  }
+  74% {
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  76% {
+    font-weight: 200;
+    font-style: italic;
+    text-decoration: none;
+    text-transform: none;
+  }
+  78% {
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: line-through;
+    text-transform: none;
+  }
+  80% {
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  82% {
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  84% {
+    font-weight: 200;
+    font-style: italic;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  86% {
+    font-weight: 300;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  88% {
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: lowercase;
+  }
+  90% {
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: line-through;
+    text-transform: none;
+  }
+  92% {
+    font-weight: 600;
+    font-style: italic;
+    text-decoration: none;
+    text-transform: none;
+  }
+  94% {
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: line-through;
+    text-transform: none;
+  }
+  96% {
+    font-weight: 100;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+  98% {
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: none;
+  }
+}
