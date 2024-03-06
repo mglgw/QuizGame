@@ -1,4 +1,4 @@
-# QuizGame - challenge for you and your friends##
+# QuizGame - challenge for you and your friends
 ---------
 ## Introduction
 
@@ -16,8 +16,6 @@ Get into game solo or with up to 5 friends and check your knowledge about variou
 ## Preview
 
 ![quizgif](quizanimated.gif)
-
----
 ## Used Technologies
 
 - .NET
