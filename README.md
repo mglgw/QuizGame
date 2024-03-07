@@ -42,15 +42,18 @@ Get into game solo or with up to 5 friends and check your knowledge about variou
 
 Developed and tested on
 
--Node.js - version 18.16.0
--Yarn - version 1.22.19
--.NET 6.0
--PostgreSQL
+- Node.js - version 18.16.0
+- Yarn - version 1.22.19
+- .NET 6.0
+- PostgreSQL
 
 You can replace Yarn with NPM or PNPM
 
 ### First step is to run front:
-
+To install yarn use:
+```
+yarn install
+```
 Make sure that WebSocket URL path in connection.ts file is set correctly, then:
 
 Use:
@@ -67,27 +70,6 @@ yarn preview
 ```
 to run production version.
 ### Second step is to run back
-
-Make sure you set up Postgres database and then
-
-Use:
-```
-dotnet ef database update
-```
-to prepare database for input from question uploader - it will create required tables, then:
-```
-dotnet run
-```
-to run backend app and wait till it start.
-
-Next step is uploading questions to database.
-
-To do so, you need csv file in following pattern:
-
-```
-category,question,answerA,answerB,answerC,answerD,correctAnswer
-```
-
-Right now you can use Swagger or Postman to send POST request to '(yourHost)/api/quizuploader' endpoint. Progress of saving these questions can be seen in console window of backend app.
+You can find all instructions in backend repo [here](https://github.com/mglgw/quizgame-backend).
 
 ### And that's it! You are ready to go and solve quiz of your own making! GLHF!
