@@ -32,6 +32,7 @@ Check out this game [HERE](https://quizgame.lol/) :)
 - PostgreSQL
 
 ---
+
 ## To Do:
 
 - [x] Add visual indicator when time is about to run out
@@ -42,6 +43,7 @@ Check out this game [HERE](https://quizgame.lol/) :)
 - [x] Replayable lobbies
 
 ---
+
 ## Getting Started
 
 ## Prerequisites
