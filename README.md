@@ -30,6 +30,7 @@ Check out this game [HERE](https://quizgame.lol/) :)
 - ReactJS
 - Tailwind
 - PostgreSQL
+- Redux Toolkit
 
 ---
 
